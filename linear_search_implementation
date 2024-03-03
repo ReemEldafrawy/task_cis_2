@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+int linear_search(int arr[], int n, int key)
+{
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[i] == key)
+		{
+			return i;
+
+		}
+	}
+	return -1;
+		
+       
+	
+}
+void display(int arr[], int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+}
+
+
+
+
+int main()
+{
+	int arr[] = { 80,90,60,30,50,70,40 };
+	int n = sizeof(arr) / sizeof(arr[0]);
+	int num;
+	cout << "enter the num ,please\n";
+	cin >> num;
+int result=	 linear_search(arr, n, num);
+if (result == -1)
+{
+	cout << "the num is not found\n";
+}
+else
+{
+	cout << "the num is found: " << "-> " << "the position of num is:" << (result) << endl;
+}
+	
+
+
+
+}
