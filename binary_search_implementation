@@ -1,0 +1,96 @@
+#include <iostream>
+using namespace std;
+int Binary_search(int arr[], int start, int end, int key)
+{
+    while (end >= start)
+    {
+        int middle = (start + end) / 2;
+        if (arr[middle] == key)
+        {
+            return middle;
+        }
+        if (arr[middle] > key)
+        {
+            end = middle - 1;
+        }
+        else
+        {
+            start = middle + 1;
+        }
+    }
+    return -1;
+
+
+
+
+}
+int binary_search_2(int arr[], int start, int end, int key)
+{
+    while (end >= start)
+    {
+        int middle = (start + end) / 2;
+        if (arr[middle] == key)
+        {
+            return middle;
+        }
+        if (arr[middle] > key)
+        {
+            return binary_search_2(arr, start, middle - 1, key);
+        }
+        else
+        {
+            return binary_search_2(arr, middle + 1, end, key);
+        }
+    }return -1;
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+int main()
+{
+    int arr[] = { 4,8,10,12,18,20,31,32,40,45,55,85,87 };
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int num;
+    cout << "enter the num ,please\n";
+    cin >> num;
+    int result = Binary_search(arr, 0, size - 1, num);
+    if (result == -1)
+    {
+        cout << "the num is not found" << endl;
+    }
+    else
+    {
+        cout << "the num is found: " << arr[result] << "->" << result << endl;
+    }
+
+    cout << "enter the num,please\n";
+    int num2;
+    cin >> num2;
+    int result2 = binary_search_2(arr, 0, size - 1, num2);
+    if (result == -1)
+    {
+        cout << "the num is not found" << endl;
+
+    }
+    else
+    {
+        cout << "the num is found: " << arr[result2] << "->" << result2 << endl;
+    }
+
+
+
+
+
+    
+}
